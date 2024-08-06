@@ -81,10 +81,28 @@ export default {
                 
         return
             }
+            const formdata = new FormData()
 
-            axios.get("/api/test-2").then((res)=>{
-              console.log(res.data)
+            formdata.append('username',this.username)
+            formdata.append('password',this.password)
+              axios.post('/api/login',formdata).then((res)=>{
+               
+                const accessToken = res.headers['access'];
+                localStorage.setItem('access',accessToken)
+
+                const reqUrl=localStorage.getItem('requestUrl')
+                if(reqUrl===undefined || reqUrl==='' || reqUrl===null){
+                  this.$router.push('/');
+                }else{
+                  this.$router.push(reqUrl);
+                }
+             
+                
+              }).catch((err)=>{
+                console.log(err)
+                alert('로그인 실패')
             })
+          
             
         
     },
@@ -105,6 +123,16 @@ export default {
                 return
             }
             
+            const formdata = new FormData()
+
+            formdata.append('username',this.username)
+            formdata.append('password',this.password)
+
+            axios.post('/api/join',formdata).then((res)=>{
+              console.log(res.data)
+            }).catch((err)=>{
+              console.log(err)
+            })
 
           }
         

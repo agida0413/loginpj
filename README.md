@@ -1,24 +1,9 @@
 # loginpj
 
-## Project setup
-```
-npm install
-```
+2024/08/06 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+jwt 를 활용한 시큐리티 로그인, 회원가입 VUE.JS
